@@ -6,10 +6,10 @@ import Modal from "react-modal"
 import AddEditNotes from "./AddEditNotes"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import Navbar from "../../components/Navbar"
+import Navbar from "../../Components/Navbar"
 import axios from "axios"
 import { toast } from "react-toastify"
-import EmptyCard from "../../components/EmptyCard/EmptyCard"
+import EmptyCard from "../../Components/EmptyCard/EmptyCard"
 
 const Dashboard = () => {
   const { currentUser } = useSelector(
