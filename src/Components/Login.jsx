@@ -4,6 +4,7 @@ import PasswordInput from "../Components/Input/PasswordInput"
 import { Link, useNavigate } from "react-router-dom"
 import { validateEmail } from "../utils/helper"
 import { useDispatch } from "react-redux"
+// const apiKey = import.meta.env.VITE_API_BASE_URL;
 import {
   signInFailure,
   signInStart,
@@ -39,7 +40,7 @@ const Login = () => {
       dispatch(signInStart())
 
       const res = await axios.post(
-        "http://localhost:3000/login/login",
+        `${import.meta.env.VITE_API_URL}/login/login`,
         { email, password },
         { withCredentials: true }
       )

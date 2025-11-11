@@ -10,7 +10,6 @@ import Navbar from "../../Components/Navbar"
 import axios from "axios"
 import { toast } from "react-toastify"
 import EmptyCard from "../../Components/EmptyCard/EmptyCard"
-
 const Dashboard = () => {
   const { currentUser } = useSelector(
     (state) => state.user
@@ -44,7 +43,7 @@ const Dashboard = () => {
   // get all notes
   const getAllNotes = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/note/all", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/note/all`, {
         withCredentials: true,
       })
 
@@ -71,7 +70,7 @@ const Dashboard = () => {
 
     try {
       const res = await axios.delete(
-        "http://localhost:3000/note/delete/" + noteId,
+        "${apiKey}/note/delete/" + noteId,
         { withCredentials: true }
       )
 
@@ -89,7 +88,7 @@ const Dashboard = () => {
 
   const onSearchNote = async (query) => {
     try {
-      const res = await axios.get("http://localhost:3000/note/search", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/note/search`, {
         params: { query },
         withCredentials: true,
       })
@@ -117,7 +116,7 @@ const Dashboard = () => {
 
     try {
       const res = await axios.put(
-        "http://localhost:3000/note/update-note-pinned/" + noteId,
+        `${import.meta.env.VITE_API_URL}/note/update-note-pinned/` + noteId,
         { isPinned: !noteData.isPinned },
         { withCredentials: true }
       )
@@ -146,7 +145,7 @@ const Dashboard = () => {
       <div className="container mx-auto">
         {allNotes.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-8 max-md:m-5">
-            {allNotes.map((note, index) => (
+            {allNotes.map((note,) => (
               <NoteCard
                 key={note._id}
                 title={note.title}

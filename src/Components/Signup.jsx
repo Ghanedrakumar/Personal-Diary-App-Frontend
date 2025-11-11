@@ -3,7 +3,6 @@ import React from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
-
 const Signup = () => {
   const navigate = useNavigate()
 
@@ -17,7 +16,7 @@ const Signup = () => {
   const onSubmit = async (data) => {
     console.log(data)
     try {
-      const response = await fetch("http://localhost:3000/signup/signup", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/signup/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
