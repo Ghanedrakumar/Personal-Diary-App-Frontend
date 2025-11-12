@@ -4,7 +4,6 @@ import PasswordInput from "../Components/Input/PasswordInput"
 import { Link, useNavigate } from "react-router-dom"
 import { validateEmail } from "../utils/helper"
 import { useDispatch } from "react-redux"
-// const apiKey = import.meta.env.VITE_API_BASE_URL;
 import {
   signInFailure,
   signInStart,
